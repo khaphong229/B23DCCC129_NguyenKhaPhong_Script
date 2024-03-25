@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#main{
+    width: 700px;
+    margin: auto;
+    padding: 50px;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+}
+.info-post{
+    /* width: 100%; */
+}
+.info-post p{
+    width: max-content;
+}
+
+.avt{
+    width: 30px;
+    border-radius: 50%;
+}
+#main > img,
+figure img{
+    margin: 10px 0px;
+    width: 100%;
+}
+
+#main > p{
+    font-size: large;
+}

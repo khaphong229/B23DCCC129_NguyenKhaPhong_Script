@@ -1,0 +1,60 @@
+.chung {
+    display: flex;
+    gap: 10px;
+  }
+  .main {
+    background-color: #fff;
+    box-shadow: 0 0 0 2px white, 0.3em 0.3em 1em rgba(83, 83, 83, 0.6);
+    width: 600px;
+    padding: 30px;
+    border-radius: 10px;
+    margin: auto;
+  }
+  .header {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+  }
+  .footer {
+    border-top: 1px solid #ccc;
+    padding: 10px 0px;
+  }
+  .chung div {
+    width: 50%;
+  }
+  p {
+    color: #6495ed;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .body {
+    padding-bottom: 10px;
+  }
+  .submit {
+    color: #fff;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    float: right;
+    background-color: #6495ed;
+    border: none;
+    border-radius: 5px;
+  }
+  .dodai {
+    width: 90%;
+  }
+  body {
+    min-height: 1000px;
+    background-color: #6495ed;
+  }
+  .chung div input {
+    height: 25px;
+  }
+  .dis {
+    background-color: #6495ed;
+    color: #fff;
+    border-radius: 3px;
+  }
+
+  .email{
+    height: 25px;
+  }
