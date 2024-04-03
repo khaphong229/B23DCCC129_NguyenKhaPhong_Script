@@ -1,0 +1,10 @@
+var number = [1,2,3,4,5];
+console.log(number[1]);
+console.log(number.length);
+console.log(number.join(' - '));
+console.log(number.slice(1,3));
+console.log(number.reverse());
+console.log(number.sort());
+console.log(number.pop());
+console.log(number.unshift(11,22));
+console.log(number.shift());
