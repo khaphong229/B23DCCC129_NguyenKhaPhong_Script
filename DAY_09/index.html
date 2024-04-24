@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    .main, .posts{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 100px;
+    }
+    .one{
+        text-align: center;
+
+    }
+</style>
+<body>
+    <div class="main">
+        <input type="password" class="pass">
+        <button type="submit" id="show-pass">Show</button>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="posts">
+        <input type="text" class="post">
+        <button type="submit" class="up-post">Upload</button>
+    </div>
+    <div class="display"></div>
+    <div class="one"></div>
+    <script>
+        $(document).ready(function(){
+            $('#show-pass').click(function(){
+                var inputPass=$('.pass');
+                if(inputPass.attr('type')=='password'){
+                    inputPass.attr('type','text');
+                    $('#show-pass').text('Hide');
+                }else{
+                    inputPass.attr('type','password');
+                    $('#show-pass').text('Show');
+                }
+            })
+
+            $('.up-post').click(function(){
+                var val=$('.post').val();
+                $('.one').after('<p class="post-p">',val,'</p>');
+
+            })
+        })
+    </script>
+</body>
+</html>
