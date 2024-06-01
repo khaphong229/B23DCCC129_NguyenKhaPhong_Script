@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sinh viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Danh sách sinh viên</h1>
+    <button onclick="displayForm()">Thêm sinh viên</button>
+    <table style="display: none;" class="form-container">
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" class="name-input"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" class="email-input"></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input type="number" class="phone-input"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" class="pass-input"></td>
+            </tr>
+            <tr>
+                <button class="add-user" onclick="handleSubmit()">Thêm</button>
+            </tr>
+            <tr>
+                <p class="mess"></p>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul id="student-list"></ul>
+    <script src="main.js"></script>
+</body>
+</html>
