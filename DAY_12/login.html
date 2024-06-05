@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>Username:</td>
+          <td><input type="text" id="username" /></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type="password" id="password" /></td>
+        </tr>
+      </tbody>
+    </table>
+    <button onclick="submit()">Login</button>
+    <script>
+      if (sessionStorage.getItem("logged") === "true") {
+        window.location.href = "admin.html";
+      }
+      const submit = () => {
+        let username = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+        console.log(username, pass);
+        if (username === "admin" && pass === "11") {
+          sessionStorage.setItem("logged", "true");
+          window.location.href = "admin.html";
+        } else {
+          alert("username or password is wrong. try again please");
+        }
+      };
+    </script>
+  </body>
+</html>
