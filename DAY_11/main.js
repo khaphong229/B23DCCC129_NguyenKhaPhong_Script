@@ -8,6 +8,13 @@ $(document).ready(function() {
             const studentList = $('#student-list');
             students['data']['users'].forEach(function(student) {
                 const listItem = $('<li></li>').text(`${student.name} - ${student.email} - ${student.phone}`);
+                const editButton = $('<button></button>').text('Edit').click(function() {
+                    displayEditForm(student);
+                });
+                const deleteButton = $('<button></button>').text('Delete').click(function() {
+                    deleteUser(student.id);
+                });
+                listItem.append(editButton, deleteButton);
                 studentList.append(listItem);
             });
         },
@@ -20,32 +27,82 @@ $(document).ready(function() {
     });
 });
 
-const displayForm=()=>{
+const displayForm = () => {
     $('.form-container').toggle();
 }
 
-const handleSubmit=()=>{
-    let name=$('.name-input').val();
-    let email=$('.email-input').val();
-    let phone=$('.name-input').val();
-    let pass=$('.pass-input').val();
-    let data_user={
-        name:name,
-        email:email,
-        phone:phone,
-        password:pass,
+const handleSubmit = () => {
+    let name = $('.name-input').val();
+    let email = $('.email-input').val();
+    let phone = $('.phone-input').val();
+    let pass = $('.pass-input').val();
+    let data_user = {
+        name: name,
+        email: email,
+        phone: phone,
+        password: pass,
     }
     console.log(data_user);
     $.ajax({
         url: 'http://api.uduer.com/users',
         method: 'POST',
         data: data_user,
-        success: function(data){
+        success: function(data) {
             console.log(data);
-            $('.mess').text(`Add user succesfully ${data}`);
+            $('.mess').text(`Add user successfully ${data}`);
         },
-        error: function(err){
+        error: function(err) {
             console.log(err);
         }
-    })
+    });
+}
+
+const displayEditForm = (student) => {
+    $('.name-input').val(student.name);
+    $('.email-input').val(student.email);
+    $('.phone-input').val(student.phone);
+    $('.pass-input').val('');
+    $('.form-container').show();
+    $('#submit-button').off('click').on('click', function() {
+        handleUpdate(student.id);
+    });
+}
+
+const handleUpdate = (id) => {
+    let name = $('.name-input').val();
+    let email = $('.email-input').val();
+    let phone = $('.phone-input').val();
+    let pass = $('.pass-input').val();
+    let data_user = {
+        name: name,
+        email: email,
+        phone: phone,
+        password: pass,
+    }
+    $.ajax({
+        url: `http://api.uduer.com/users/${id}`,
+        method: 'PUT',
+        data: data_user,
+        success: function(data) {
+            console.log(data);
+            $('.mess').text(`Update user successfully ${data}`);
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+}
+
+const deleteUser = (id) => {
+    $.ajax({
+        url: `http://api.uduer.com/users/${id}`,
+        method: 'DELETE',
+        success: function(data) {
+            console.log(data);
+            $('.mess').text(`Delete user successfully ${data}`);
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
 }
